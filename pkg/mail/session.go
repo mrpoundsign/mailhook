@@ -37,7 +37,6 @@ func (s *Session) Mail(from string, opts *smtp.MailOptions) error {
 
 func (s *Session) Rcpt(to string, opts *smtp.RcptOptions) error {
 	for _, h := range s.hooks {
-		log.Println("Checking hook", h.Address, to)
 		if h.Address == to {
 			s.to = to
 			return nil
