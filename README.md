@@ -4,22 +4,22 @@ Only tested with Discord.
 
 ## Usage
 
-Defaults to looking for `mailhook.yml` in `/etc/mailhook.yml`
+Defaults to looking for `mailhook.yaml` in `/etc/mailhook.yaml`
 
 ```bash
 mailhook
 ```
 
-You can specify a `mailhook.yml`` in the command line.
+You can specify a `mailhook.yaml`` in the command line.
 ```bash
-mailhook -c mailhook.yml
+mailhook -c mailhook.yaml
 ```
 
 ## Configuration
 
 Only a single user/password is supported.
 
-Sample `mailhook.yml`:
+Sample `mailhook.yaml`:
 
 ```yaml
 port: 1025
