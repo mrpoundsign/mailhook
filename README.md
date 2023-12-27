@@ -40,6 +40,20 @@ hooks:
 
 If you need to use html emails, set `html_markdown: true`. Otherwise it will use the text portion of the email.
 
+### Adding Headers to HTTP Requests
+
+Headers can be added to the request using the `headers` key.
+```yaml
+hoooks:
+  - name: One
+      address: text@mailhook
+      url: https://discord.com/api/webhooks/...
+      html_markdown: false
+      headers:
+        - cache-control: none
+          content-type: text/plain
+```
+
 ## Building
 
 You need to have `go` installed. If you don't have it, go to https://golang.org/doc/install
