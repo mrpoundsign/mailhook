@@ -1,0 +1,14 @@
+port: 1025
+host: 0.0.0.0
+auth:
+  username: username
+  password: password
+hooks:
+  - name: One
+    address: hook1@mailhook
+    url: https://discord.com/api/webhooks/...
+    html_markdown: false
+  - name: two
+    address: hook2@mailhook
+    url: https://discord.com/api/webhooks/...
+    html_markdown: true
