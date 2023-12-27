@@ -74,7 +74,7 @@ func (s *Session) Logout() error {
 }
 
 func formatEmail(email parsemail.Email, hook Hook) string {
-	if hook.HTMLMarkdown {
+	if hook.HTMLMarkdown && email.HTMLBody != "" {
 		return formatHTMLEmail(email, hook)
 	}
 	return formatTextEmail(email, hook)
