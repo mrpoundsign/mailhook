@@ -97,7 +97,7 @@ func formatHTMLEmail(email parsemail.Email, hook Hook) string {
 }
 
 func formatTextEmail(email parsemail.Email, hook Hook) string {
-	return fmt.Sprintf("**%s**:\nSubject: *%s*\n%s", formatFrom(email.From), email.Subject, email.TextBody)
+	return format(email, email.TextBody)
 }
 
 func format(email parsemail.Email, text string) string {
