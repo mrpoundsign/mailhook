@@ -39,3 +39,26 @@ hooks:
 ```
 
 If you need to use html emails, set `html_markdown: true`. Otherwise it will use the text portion of the email.
+
+## Building
+
+You need to have `go` installed. If you don't have it, go to https://golang.org/doc/install
+
+Now, get the `mailhook` repo.
+
+```bash
+git clone https://github.com/mrpoundsign/mailhook.git
+cd mailhook
+```
+
+Do the go things.
+
+```bash
+go get
+```
+
+Now build it.
+
+```bash
+go build -o mailhook cmd/mailhook/main.go
+```
