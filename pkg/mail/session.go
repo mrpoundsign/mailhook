@@ -5,9 +5,12 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"strings"
 
 	"github.com/DusanKasan/parsemail"
 	"github.com/emersion/go-smtp"
+
+	nm "net/mail"
 
 	md "github.com/JohannesKaufmann/html-to-markdown"
 )
@@ -94,9 +97,23 @@ func formatHTMLEmail(email parsemail.Email, hook Hook) string {
 }
 
 func formatTextEmail(email parsemail.Email, hook Hook) string {
-	return fmt.Sprintf("**%s**:\n%s", email.From, email.TextBody)
+	return fmt.Sprintf("**%s**:\nSubject: *%s*\n%s", formatFrom(email.From), email.Subject, email.TextBody)
 }
 
 func format(email parsemail.Email, text string) string {
-	return fmt.Sprintf("From: **%s**:\nSubject: *%s*\n%s", email.From, email.Subject, text)
+	return fmt.Sprintf("From: **%s**:\nSubject: *%s*\n%s", formatFrom(email.From), email.Subject, text)
+}
+
+func formatFrom(addresses []*nm.Address) string {
+	if len(addresses) == 0 {
+		return "NO FROM ADDRESS"
+	}
+	var sb strings.Builder
+	for _, a := range addresses {
+		if sb.Len() > 0 {
+			sb.WriteString(", ")
+		}
+		sb.WriteString(fmt.Sprintf("%s <%s>", a.Name, a.Address))
+	}
+	return sb.String()
 }
