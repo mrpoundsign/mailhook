@@ -10,7 +10,7 @@ Defaults to looking for `mailhook.yaml` in `/etc/mailhook.yaml`
 mailhook
 ```
 
-You can specify a `mailhook.yaml`` in the command line.
+You can specify a `mailhook.yaml` in the command line.
 ```bash
 mailhook -c mailhook.yaml
 ```
